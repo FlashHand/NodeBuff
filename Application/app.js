@@ -3,7 +3,7 @@ const PORT1 = 5050;//数据库端口
 const PORT2 = 5000;//实时数据端口
 const TIMEOUT_LONG = 60;
 var net = require('net');
-  queryServer=net.createServer(() => {}).listen(PORT1);
+  queryServer=net.createServer(() => {}).listen(PORT2);
   queryServer.on('connection',(client) => {
     //与客户端建立连接
     console.log('connection:' + client.remoteAddress);
