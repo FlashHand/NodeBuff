@@ -6,7 +6,7 @@ var net = require('net');
 queryServer=net.createServer(() => {}).listen(PORT1);
 queryServer.on('connection',(client) => {
   //与客户端建立连接
-  console.log(PORT1 + '~' +'connection:' + clsient.remoteAddress);
+  console.log(PORT1 + '~' +'connection:' + client.remoteAddress);
   // client.setTimeout(TIMEOUT_LONG,() => {
   //   console.log('destroy' + client.remoteAddress);
   //   client.destroy();
