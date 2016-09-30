@@ -9,15 +9,16 @@ var ascii = new Iconv('GB18030', 'UTF-8');
 queryServer=net.createServer(() => {}).listen(PORT1);
 queryServer.on('connection',(client) => {
   //与客户端建立连接
-  console.log(PORT1 + '~' +'connection:' + client.remoteAddress);
+  console.log(PORT1 + '~' +'connection:' + clsient.remoteAddress);
   // client.setTimeout(TIMEOUT_LONG,() => {
   //   console.log('destroy' + client.remoteAddress);
   //   client.destroy();
   // });
   //收到客户端消息
   var watch='BEGINWATCH00100000;100;'
-  var buffer＝ new Buffer(watch,'ascii')
-  client.write(utf8_buffer+'\r\n');
+  const buffer=Buffer.from(watch,'ascii');
+
+  client.write(buffer+'\r\n');
 
   client.on('data', function(receivedData) {
     console.log(PORT1 + '~' +receivedData);
