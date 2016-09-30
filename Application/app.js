@@ -22,8 +22,7 @@ queryServer.on('connection',(client) => {
           client.remoteAddress + ' ' + client.remotePort);
   });
   client.on('error', function(error) {
-      console.log(PORT1+'error: ' +
-          client.remoteAddress + ' ' + client.remotePort);
+      console.log(PORT1+'error: ' + error);
   });
 
 });
@@ -46,8 +45,7 @@ upServer.on('connection',(client) => {
           client.remoteAddress + ' ' + client.remotePort);
   });
   client.on('error', function(error) {
-      console.log(PORT2+'error: ' +
-          client.remoteAddress + ' ' + client.remotePort);
+      console.log(PORT2+'error: ' + error);
   });
 
 });
