@@ -3,9 +3,6 @@ const PORT1 = 5050;//数据库端口
 const PORT2 = 5000;//实时数据端口
 const TIMEOUT_LONG = 60;
 var net = require('net');
-var Iconv  = require('iconv').Iconv;
-var ascii = new Iconv('GB18030', 'UTF-8');
-
 queryServer=net.createServer(() => {}).listen(PORT1);
 queryServer.on('connection',(client) => {
   //与客户端建立连接
