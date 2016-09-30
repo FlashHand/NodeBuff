@@ -3,6 +3,9 @@ const PORT1 = 5050;//数据库端口
 const PORT2 = 5000;//实时数据端口
 const TIMEOUT_LONG = 60;
 var net = require('net');
+var Iconv  = require('iconv').Iconv;
+var ascii = new Iconv('GB18030', 'UTF-8');
+
 queryServer=net.createServer(() => {}).listen(PORT1);
 queryServer.on('connection',(client) => {
   //与客户端建立连接
@@ -12,8 +15,13 @@ queryServer.on('connection',(client) => {
   //   client.destroy();
   // });
   //收到客户端消息
+  var watch='BEGINWATCH00100000;100;'
+  var buffer＝ new Buffer(watch,'ascii')
+  client.write(utf8_buffer+'\r\n');
+
   client.on('data', function(receivedData) {
     console.log(PORT1 + '~' +receivedData);
+
   });
 
   //和客户端断开
