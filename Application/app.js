@@ -12,10 +12,10 @@ queryServer.on('connection',(client) => {
   //   client.destroy();
   // });
   //收到客户端消息
-  var watch='BEGINWATCH00100000;100;'
+  var watch='BEGINWATCH00100000;100;\r\n'
   const buffer=Buffer.from(watch,'ascii');
 
-  client.write(buffer+'\r\n');
+  client.write(buffer);
 
   client.on('data', function(receivedData) {
     console.log(PORT1 + '~' +receivedData);
@@ -32,6 +32,8 @@ queryServer.on('connection',(client) => {
   });
 
 });
+
+
 upServer=net.createServer(() => {}).listen(PORT2);
 upServer.on('connection',(client) => {
   //与客户端建立连接
